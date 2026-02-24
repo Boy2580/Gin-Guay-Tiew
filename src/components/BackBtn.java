@@ -3,20 +3,25 @@ package components;
 import config.CustomFontLoader;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.font.TextLayout;
 import java.awt.geom.AffineTransform;
 
 public class BackBtn extends JButton {
+    private final Font jerseyFont = CustomFontLoader.loadCustomFont("resources/Jersey10.ttf");;
+
     public BackBtn() {
+        // BUTTON Configuration //
         super("< Back");
-        Font JerseyFont = CustomFontLoader.loadCustomFont("resources/Jersey10.ttf");
-        setFont(JerseyFont.deriveFont(24f));
         setBorderPainted(false);
         setContentAreaFilled(false);
         setFocusPainted(false);
+        setBorder(new EmptyBorder(10, 10, 10, 10));
+        setFont(jerseyFont.deriveFont(24f));
     }
 
+    // Graphics2D Outline & Hover Effects
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
@@ -31,9 +36,11 @@ public class BackBtn extends JButton {
         Shape shape = tl.getOutline(AffineTransform.getTranslateInstance(x, y));
 
         // Draw Outline
-        g2.setColor(Color.BLACK);
-        g2.setStroke(new BasicStroke(getModel().isRollover() ? 5 : 0));
-        g2.draw(shape);
+        if (getModel().isRollover()) {
+            g2.setColor(Color.BLACK);
+            g2.setStroke(new BasicStroke(5));
+            g2.draw(shape);
+        }
 
         // Fill Text
         g2.setColor(getModel().isRollover() ? Color.WHITE : Color.BLACK);

@@ -19,8 +19,7 @@ public class LevelSelect extends JPanel {
     private JPanel topPanel() {
         // TOP_PANEL Configuration //
         JPanel topPanel = new JPanel(new BorderLayout());
-        topPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20));
-        topPanel.setBackground(Color.orange);
+        topPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 45)); // Padding
 
         // Components //
         JButton backBtn = new BackBtn();
