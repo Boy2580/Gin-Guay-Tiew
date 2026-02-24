@@ -1,6 +1,6 @@
 package components;
 
-import config.CustomFontLoader;
+import utilities.CustomFontLoader;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

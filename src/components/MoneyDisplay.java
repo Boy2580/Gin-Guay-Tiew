@@ -1,7 +1,7 @@
 package components;
 
-import config.CustomFontLoader;
-import config.IconImage;
+import utilities.CustomFontLoader;
+import utilities.IconImage;
 
 import javax.swing.*;
 import java.awt.*;
