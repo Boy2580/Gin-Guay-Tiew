@@ -11,7 +11,8 @@ import java.awt.geom.*;
  * Supports basic multi-line text using the {@code <br>} tag.
  */
 public class CustomJLabel extends JLabel {
-    private final float strokePixels;
+    private float strokePixels;
+    private Color outlineColor = Color.BLACK;
 
     /**
      * Constructs a new CustomJLabel with a specified outline thickness.
@@ -24,6 +25,30 @@ public class CustomJLabel extends JLabel {
     public CustomJLabel(String text, float strokePixels) {
         super(text.trim());
         this.strokePixels = strokePixels;
+    }
+
+    /**
+     * Sets the fill color of the text.
+     */
+    public void setTextColor(Color color) {
+        setForeground(color);
+        repaint();
+    }
+
+    /**
+     * Sets the color of the text outline.
+     */
+    public void setOutlineColor(Color color) {
+        this.outlineColor = color;
+        repaint(); // Refresh the component to show the new color
+    }
+
+    /**
+     * Sets the thickness of the outline.
+     */
+    public void setOutlineThickness(float pixels) {
+        this.strokePixels = pixels;
+        repaint();
     }
 
     @Override
@@ -46,12 +71,12 @@ public class CustomJLabel extends JLabel {
             Shape shape = tl.getOutline(AffineTransform.getTranslateInstance(x, y));
 
             // Draw Outline
-            g2.setColor(Color.BLACK);
+            g2.setColor(outlineColor);
             g2.setStroke(new BasicStroke(strokePixels));
             g2.draw(shape);
 
             // Fill Text
-            g2.setColor(Color.WHITE);
+            g2.setColor(getForeground());
             g2.fill(shape);
 
             y += lineHeight;
