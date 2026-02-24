@@ -11,6 +11,7 @@ import static javax.swing.BoxLayout.Y_AXIS;
 public class MainMenuPage extends JPanel {
 
     MainFrame frame;
+    private Image backgroundImage;
 
     JButton yes = new JButton("Yes");
     JButton no = new JButton("No");
@@ -24,21 +25,25 @@ public class MainMenuPage extends JPanel {
     JButton exit = new JButton("Exit");
 
     public MainMenuPage(MainFrame frame) {
+
         this.frame = frame;
         setLayout(new BorderLayout());
         dialog = new PopupWindow().PopupTutorial(frame,"tutorial",true,"Do you want to play Tutorial",yes,no);
-
+        this.backgroundImage = new ImageIcon("resources/images/mainMenu/image-from-rawpixel-id-14653376-jpeg.jpg").getImage();
 
         JPanel center_contain = new JPanel();
         center_contain.setLayout(new BoxLayout(center_contain,Y_AXIS));
-        
+
 
         // Image LoGogame
-        ImageIcon icon = IconImage.create("resources/images/LogoGame.png", 300, 300);
+        ImageIcon icon = IconImage.create("resources/images/mainMenu/LogoGame.png", 300, 300);
         JLabel con_icon = new JLabel();
         con_icon.setIcon(icon);
         con_icon.setAlignmentX(Component.CENTER_ALIGNMENT);
         center_contain.add(con_icon);
+        center_contain.setOpaque(false);
+
+
         // -------------------------------------
 
 
@@ -47,6 +52,7 @@ public class MainMenuPage extends JPanel {
         JPanel con_Main_btn = new JPanel();
         con_Main_btn.setLayout(new GridLayout(2,2,10,10));
         con_Main_btn.setMaximumSize(new Dimension(500,35));
+        con_Main_btn.setOpaque(false);
 
         start_game.setActionCommand("Start Game");
         tutorial.setActionCommand("Tutorial");
@@ -75,6 +81,7 @@ public class MainMenuPage extends JPanel {
         con_exit.add(exit);
         con_exit.setBorder(BorderFactory.createEmptyBorder(5,0,0,0));
         center_contain.add(con_exit);
+        con_exit.setOpaque(false);
         // -------------------------------------
 
 
@@ -91,6 +98,13 @@ public class MainMenuPage extends JPanel {
 
 
         add(center_contain, BorderLayout.CENTER);
+
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
     }
 
     public JDialog getDialog() {
