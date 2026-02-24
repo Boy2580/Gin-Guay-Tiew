@@ -4,7 +4,6 @@ import utilities.CustomJLabel;
 import utilities.CustomFontLoader;
 import utilities.IconImage;
 import utilities.IconFilter;
-import utilities.UiAnimator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,58 +28,74 @@ public class LevelsDisplay extends JPanel {
             levelContainer.setOpaque(false);
 
             if (levelNum <= levelsName.length) {
-
-                // Shadow (Bottom Layer)
-                ImageIcon rawShadow = IconImage.create("resources/images/levelSelection/Shadow.png", 150, 40);
-                ImageIcon shadow_Selected = IconFilter.setOpacity(rawShadow, 0.35f);
-                ImageIcon shadow_Unselect = IconFilter.setOpacity(rawShadow, 0.1f);
-                JLabel iconShadow = new JLabel(shadow_Unselect);
-
-                iconShadow.setAlignmentX(0.5f);
-                iconShadow.setAlignmentY(0.5f);
-                iconShadow.setBorder(BorderFactory.createEmptyBorder(100, 0, 0, 0));
+                // Level name (Top Layer)
+                CustomJLabel textLabel = new CustomJLabel(levelsName[levelNum - 1], 5f);
+                textLabel.setFont(jerseyFont.deriveFont(25f));
+                textLabel.setTextColor(Color.WHITE);
+                textLabel.setAlignmentX(0.5f);
+                textLabel.setAlignmentY(1f);
+                textLabel.setBorder(BorderFactory.createEmptyBorder(50, 10, 0, 10));
 
                 // Level Image (Middle Layer)
                 String imagePath = "resources/images/levelSelection/Level" + levelNum + ".png";
                 ImageIcon icon_Selected = IconImage.create(imagePath, 130, 130);
-                ImageIcon icon_Unselected = IconFilter.cloneDark(icon_Selected, 100);
-                ImageIcon icon_Locked = IconFilter.cloneDark(icon_Selected, 200);
-                JButton iconLevel = new JButton(icon_Locked);
-
+                ImageIcon icon_Unselected = IconFilter.cloneDark(icon_Selected, 50);
+                ImageIcon icon_Locked = IconFilter.cloneDark(icon_Selected, 175);
+                JButton iconLevel = new JButton(icon_Unselected);
                 iconLevel.setBorderPainted(false);
                 iconLevel.setContentAreaFilled(false);
                 iconLevel.setFocusPainted(false);
                 iconLevel.setAlignmentX(0.5f);
                 iconLevel.setAlignmentY(0.5f);
                 iconLevel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                /// TEST
+                if (levelNum > 1) {
+                    iconLevel.setIcon(icon_Locked);
+                }
+                ///
 
-                // Animator
-                UiAnimator animator = new UiAnimator(iconLevel);
+                // Lock Icon (Above Image)
+                String lockPath = "resources/images/shared/Locked.png";
+                ImageIcon lockImg = IconImage.create(lockPath, 25, 25);
+                JLabel lockIcon = new JLabel(lockImg);
+                lockIcon.setAlignmentX(0.5f);
+                lockIcon.setAlignmentY(0.5f);
+                lockIcon.setVisible(iconLevel.getIcon() == icon_Locked);
+
+                // Shadow (Bottom Layer)
+                ImageIcon rawShadow = IconImage.create("resources/images/levelSelection/Shadow.png", 150, 40);
+                ImageIcon shadow_Selected = IconFilter.setOpacity(rawShadow, 0.35f);
+                ImageIcon shadow_Unselect = IconFilter.setOpacity(rawShadow, 0.1f);
+                JLabel iconShadow = new JLabel(shadow_Unselect);
+                iconShadow.setAlignmentX(0.5f);
+                iconShadow.setAlignmentY(0.5f);
+                iconShadow.setBorder(BorderFactory.createEmptyBorder(100, 0, 0, 0));
+
+                // Hover Fx
                 iconLevel.addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseEntered(MouseEvent e) {
+                        if (iconLevel.getIcon() == icon_Unselected) { iconLevel.setIcon(icon_Selected); }
+                        iconLevel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
+                        lockIcon.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
                         iconShadow.setIcon(shadow_Selected);
-                        animator.animatePos(10, 2, 10);
+                        textLabel.setTextColor(Color.CYAN);
                     }
 
                     @Override
                     public void mouseExited(MouseEvent e) {
+                        if (iconLevel.getIcon() == icon_Selected) { iconLevel.setIcon(icon_Unselected); }
+                        iconLevel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
+                        lockIcon.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 0));
                         iconShadow.setIcon(shadow_Unselect);
-                        animator.animatePos(0, 2, 10);
+                        textLabel.setTextColor(Color.white);
                     }
                 });
 
-                // Level name (Top Layer)
-                CustomJLabel textLabel = new CustomJLabel(levelsName[levelNum - 1], 5f);
-                textLabel.setFont(jerseyFont.deriveFont(30f));
-                textLabel.setAlignmentX(0.5f);
-                textLabel.setAlignmentY(1f);
-                textLabel.setBorder(BorderFactory.createEmptyBorder(50, 10, 0, 10));
-
                 levelContainer.add(textLabel);
+                levelContainer.add(lockIcon);
                 levelContainer.add(iconLevel);
                 levelContainer.add(iconShadow);
-
             } else {
                 levelContainer.add(new JLabel("")); // Empty slot
             }
