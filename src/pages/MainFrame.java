@@ -25,6 +25,7 @@ public class MainFrame extends JFrame{
         setTitle("Gin-Guay-Tiew");
         setSize(800,600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
         MainMenuPage mainMenuPage = new MainMenuPage(this);
         LevelSelect levelSelectPage = new LevelSelect(this);
