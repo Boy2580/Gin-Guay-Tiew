@@ -1,6 +1,7 @@
 package pages.home;
 
 import pages.MainFrame;
+import utilities.IconImage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,21 +11,20 @@ import java.awt.event.ActionListener;
 public class MainMenuPage extends JPanel implements ActionListener {
 
     MainFrame frame;
-    JButton next = new JButton("NEXT");
-    JButton exit = new JButton("EXIT");
+    JLabel logo = new JLabel();
 
     public MainMenuPage(MainFrame frame){
         this.frame = frame;
         setLayout(new FlowLayout());
-        add(next);
-        add(exit);
+        ImageIcon icon = IconImage.create("resources/images/Money.png", 20, 20);
+        logo.setIcon(icon);
 
-        next.addActionListener(this);
+        add(logo);
+
+
     }
 
     public void actionPerformed(ActionEvent e){
-        if (e.getSource().equals(next)){
-            frame.showPage("levelSelect");
-        }
+
     }
 }
