@@ -43,11 +43,11 @@ public class MainMenuPage extends JPanel {
         centerContain.add(Box.createVerticalStrut(20));
 
         // ================= Buttons =================
-        JButton startGame = new ImageJButton("resources/images/mainMenu/BtnShort", ".png", 30, 250, 50);
-        JButton tutorial = new ImageJButton("resources/images/mainMenu/BtnShort", ".png", 30, 250, 50);
-        JButton shop = new ImageJButton("resources/images/mainMenu/BtnShort", ".png", 30, 250, 50);
-        JButton setting = new ImageJButton("resources/images/mainMenu/BtnShort", ".png", 30, 250, 50);
-        JButton exit = new ImageJButton("resources/images/mainMenu/BtnLong", ".png", 30, 510, 50);
+        JButton startGame = new ImageJButton("resources/images/mainMenu/buttons/StartGame", ".png", 30, 250, 40);
+        JButton tutorial = new ImageJButton("resources/images/mainMenu/buttons/Tutorial", ".png", 30, 250, 40);
+        JButton shop = new ImageJButton("resources/images/mainMenu/buttons/Shop", ".png", 30, 250, 40);
+        JButton setting = new ImageJButton("resources/images/mainMenu/buttons/Settings", ".png", 30, 250, 40);
+        JButton exit = new ImageJButton("resources/images/mainMenu/buttons/Exit", ".png", 30, 510, 40);
 
         // ================= Row 1 =================
         JPanel row1 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
