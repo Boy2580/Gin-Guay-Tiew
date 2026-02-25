@@ -4,7 +4,6 @@ import pages.MainFrame;
 import utilities.IconFilter;
 import utilities.IconImage;
 import utilities.IconBtn;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -21,11 +20,6 @@ public class MainMenuPage extends JPanel {
 
         this.frame = frame;
         setLayout(new BorderLayout());
-
-        dialog = new PopupWindow().PopupTutorial(
-                frame,"tutorial",true,
-                "Do you want to play Tutorial",yes,no
-        );
 
         ImageIcon original = new ImageIcon(
                 "resources/images/mainMenu/image-from-rawpixel-id-14653376-jpeg.jpg"
@@ -112,7 +106,7 @@ public class MainMenuPage extends JPanel {
         add(center_contain, BorderLayout.CENTER);
 
         // ================= Action =================
-        MainBtn action_btn = new MainBtn(dialog, frame);
+        MainBtn action_btn = new MainBtn(frame);
 
 
         start_game.setActionCommand("Start Game");

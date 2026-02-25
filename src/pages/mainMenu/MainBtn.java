@@ -4,20 +4,19 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import pages.MainFrame;
+import utilities.PopupWindow;
 
 public class MainBtn implements ActionListener { ;
 
     private JDialog dialog;
     private MainFrame frame;
+    PopupWindow pop = new PopupWindow();
 
-    public MainBtn(){
-        this(null,null);
-    }
-
-    public MainBtn(JDialog dialog, MainFrame frame) {
-        this.dialog = dialog;
+    public MainBtn(MainFrame frame) {
+        if(frame == null) return;
         this.frame = frame;
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -25,10 +24,12 @@ public class MainBtn implements ActionListener { ;
             frame.showPage("levelSelect");
         }
         if (e.getActionCommand().equals("Tutorial")){
-            dialog.setVisible(true);
+            System.out.println("Tutorial clicked");
+            dialog = pop.createPopup(frame,"tutorial",true, "Do you want to play Tutorial","yes","no");
         }
         if (e.getActionCommand().equals("Shop")){
             System.out.println("Shop");
+            dialog = new PopupWindow().createPopup(frame,"tutorial",true, "Do you want to play Tutorial","no");
         }
         if (e.getActionCommand().equals("Setting")){
             System.out.println("Setting");
