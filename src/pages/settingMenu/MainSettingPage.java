@@ -1,4 +1,12 @@
 package pages.settingMenu;
 
-public class MainSettingPage {
+import pages.MainFrame;
+
+import javax.swing.*;
+
+public class MainSettingPage extends JPanel  {
+
+    public MainSettingPage(MainFrame frame) {
+
+    }
 }
