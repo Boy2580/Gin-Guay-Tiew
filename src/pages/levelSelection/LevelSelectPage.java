@@ -1,6 +1,7 @@
 package pages.levelSelection;
 
 import pages.MainFrame;
+import pages.mainMenu.MainBtn;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,10 +18,11 @@ public class LevelSelectPage extends JPanel {
         setLayout(new BorderLayout());
         setOpaque(true);
 
-        LevelsDisplay display = new LevelsDisplay();
+        LevelsDisplay display = new LevelsDisplay(this.mainFrame);
 
         add(new TopBar(mainFrame), BorderLayout.NORTH);
         add(display, BorderLayout.CENTER);
+
     }
 
     // Draw BG Image

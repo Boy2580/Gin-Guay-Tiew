@@ -1,5 +1,6 @@
 package pages.levelSelection;
 
+import pages.MainFrame;
 import utilities.CustomJLabel;
 import utilities.CustomFontLoader;
 import utilities.IconImage;
@@ -13,7 +14,7 @@ public class LevelsDisplay extends JPanel {
     private final Font jerseyFont = CustomFontLoader.loadCustomFont("resources/Jersey10.ttf");
     String[] levelsName = {"Wat Plook", "Vidya Garden<br>Market", "KMITL", "Suvarnabhumi<br>Airport", "Jurassic Park"};
 
-    public LevelsDisplay() {
+    public LevelsDisplay(MainFrame mainFrame) {
         // Display
         setLayout(new GridLayout(2, 3));
         setBorder(BorderFactory.createEmptyBorder(0, 0, 50, 0));
@@ -48,6 +49,10 @@ public class LevelsDisplay extends JPanel {
                 iconLevel.setAlignmentX(0.5f);
                 iconLevel.setAlignmentY(0.5f);
                 iconLevel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+                iconLevel.setActionCommand(levelsName[levelNum - 1]);
+                iconLevel.addActionListener(new ActionBtn(mainFrame));
+
                 /// TEST
                 if (levelNum > 1) {
                     iconLevel.setIcon(icon_Locked);

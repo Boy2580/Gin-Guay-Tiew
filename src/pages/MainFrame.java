@@ -1,5 +1,6 @@
 package pages;
 
+import pages.endGame.WinLosePage;
 import pages.mainMenu.MainMenuPage;
 import pages.levelSelection.LevelSelectPage;
 import utilities.IconImage;
@@ -13,6 +14,7 @@ public class MainFrame extends JFrame {
 
     public static final String MAIN_MENU = "mainMenu";
     public static final String LEVEL_SELECT = "levelSelect";
+    public static final String END_GAME = "winlose";
 
     private CardLayout cardLayout = new CardLayout();
     private JPanel mainPanel = new JPanel(cardLayout);
@@ -46,6 +48,7 @@ public class MainFrame extends JFrame {
         navigator = new PageNavigator(mainPanel, cardLayout, animator);
         mainPanel.add(new MainMenuPage(this), MAIN_MENU);
         mainPanel.add(new LevelSelectPage(this), LEVEL_SELECT);
+        mainPanel.add(new WinLosePage(this), END_GAME);
         navigator.toPage(MAIN_MENU, false);
 
         add(mainPanel);

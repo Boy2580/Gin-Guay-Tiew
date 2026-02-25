@@ -1,0 +1,63 @@
+package pages.endGame;
+
+import pages.MainFrame;
+import utilities.CustomFontLoader;
+import utilities.IconFilter;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class WinLosePage extends JPanel {
+    private final Font jerseyFont = CustomFontLoader.loadCustomFont("resources/Jersey10.ttf");
+    private MainFrame mainFrame;
+    private Image bgImage;
+    private boolean isWin;
+    private JLabel statusLabel;
+
+    public WinLosePage(MainFrame mainFrame) {
+        this(mainFrame,true,0,0);
+    }
+
+    public WinLosePage(MainFrame mainFrame, boolean isWin, double moneyEarned, double bonusMoney) {
+        this.mainFrame = mainFrame;
+        // background
+        ImageIcon original = new ImageIcon(
+                "resources/images/mainMenu/image-from-rawpixel-id-14653376-jpeg.jpg"
+        );
+        ImageIcon newBackground = IconFilter.setOpacity(original, 0.35f);
+        this.bgImage = newBackground.getImage();
+
+        setLayout(new BorderLayout());
+        setOpaque(false);
+
+        this.isWin = isWin;
+
+        // Status Win or Lose
+        statusLabel = new JLabel();
+        statusLabel.setHorizontalAlignment(JLabel.CENTER);
+        statusLabel.setVerticalAlignment(JLabel.TOP);
+        statusLabel.setFont(jerseyFont.deriveFont(100f));
+
+        if (isWin) { statusLabel.setText("You win!"); }
+        else  { statusLabel.setText("You lose!"); }
+
+        add(statusLabel,BorderLayout.NORTH);
+
+        // ScorePanel
+        ShowMeTheMoney scorePanel = new ShowMeTheMoney(mainFrame, moneyEarned, bonusMoney);
+        add(scorePanel, BorderLayout.CENTER);
+
+        // Botton
+        JLabel winLoseLabel = new JLabel("Botton");
+        winLoseLabel.setFont(jerseyFont.deriveFont(50f));
+        add(winLoseLabel);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (bgImage != null) {
+            g.drawImage(bgImage, 0, 0, getWidth(), getHeight(), this);
+        }
+    }
+}
