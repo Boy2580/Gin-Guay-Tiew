@@ -33,7 +33,7 @@ public class MainBtn implements ActionListener {
                    "tutorial",
                     true,
                    "Do you want to play Tutorial",
-                   "resources/images/mainMenu/8bit-pixel-graphic-blue-sky-background-with-clouds-vector.jpg",
+                   "resources/images/mainMenu/PopupBgTest.jpg",
                    new String[]{"resources/images/mainMenu/BtnShort",null},
                    new String[]{"Yes", "No"},
                    new ActionListener[]{
