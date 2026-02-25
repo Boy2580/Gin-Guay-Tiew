@@ -22,7 +22,7 @@ public class MainBtn implements ActionListener { ;
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Start Game")){
-            frame.showPage("levelSelect");
+            frame.getNavigator().toPage("levelSelect",true);
         }
         if (e.getActionCommand().equals("Tutorial")){
             dialog.setVisible(true);
