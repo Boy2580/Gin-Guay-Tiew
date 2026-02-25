@@ -44,46 +44,40 @@ public class MainMenuPage extends JPanel {
         center_contain.add(logo);
 
         // ================= Button Images =================
-        ImageIcon normal = IconImage.create("resources/images/mainMenu/btn-start-main.png", 250, 50);
-        ImageIcon hover = IconImage.create("resources/images/mainMenu/btn-start-hover.png", 250, 50);
-        ImageIcon pressed = IconImage.create("resources/images/mainMenu/btn-start-press.png", 250, 50);
+        ImageIcon btnImage = IconImage.create("resources/images/shared/shortBtn.png", 250, 50);
 
-        ImageIcon enormal = IconImage.create("resources/images/mainMenu/btn-start-main.png", 510, 50);
-        ImageIcon ehover = IconImage.create("resources/images/mainMenu/btn-start-hover.png", 510, 50);
-        ImageIcon epressed = IconImage.create("resources/images/mainMenu/btn-start-press.png", 510, 50);
-
-        JButton start_game = new IconBtn(normal, hover, pressed);
-        JButton tutorial = new IconBtn(normal, hover, pressed);
-        JButton shop = new IconBtn(normal, hover, pressed);
-        JButton setting = new IconBtn(normal, hover, pressed);
-        JButton exit = new IconBtn(enormal, ehover, epressed);
+        JButton start_game = new IconBtn("Start Game", btnImage, 30);
+//        JButton tutorial = new IconBtn(normal, hover, pressed);
+//        JButton shop = new IconBtn(normal, hover, pressed);
+//        JButton setting = new IconBtn(normal, hover, pressed);
+//        JButton exit = new IconBtn(enormal, ehover, epressed);
 
         // ================= Row 1 =================
         JPanel row01 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
         row01.setOpaque(false);
-        row01.setMaximumSize(new Dimension(Integer.MAX_VALUE, normal.getIconHeight()));
+//        row01.setMaximumSize(new Dimension(Integer.MAX_VALUE, normal.getIconHeight()));
         row01.add(start_game);
-        row01.add(tutorial);
+//        row01.add(tutorial);
 
         // ================= Row 2 =================
         JPanel row02 = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 0));
         row02.setOpaque(false);
-        row02.setMaximumSize(new Dimension(Integer.MAX_VALUE, normal.getIconHeight()));
-        row02.add(shop);
-        row02.add(setting);
+//        row02.setMaximumSize(new Dimension(Integer.MAX_VALUE, normal.getIconHeight()));
+//        row02.add(shop);
+//        row02.add(setting);
 
         // ================= Exit Row =================
-        JPanel exitRow = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
-        exitRow.setOpaque(false);
-        exitRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, enormal.getIconHeight()));
-        exitRow.add(exit);
+//        JPanel exitRow = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
+//        exitRow.setOpaque(false);
+//        exitRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, enormal.getIconHeight()));
+//        exitRow.add(exit);
 
         // ================= Add to Container =================
         center_contain.add(row01);
         center_contain.add(Box.createVerticalStrut(5));
         center_contain.add(row02);
         center_contain.add(Box.createVerticalStrut(8));
-        center_contain.add(exitRow);
+//        center_contain.add(exitRow);
 
         add(center_contain, BorderLayout.CENTER);
 
@@ -92,17 +86,17 @@ public class MainMenuPage extends JPanel {
 
 
         start_game.setActionCommand("Start Game");
-        tutorial.setActionCommand("Tutorial");
-        shop.setActionCommand("Shop");
-        setting.setActionCommand("Setting");
-        exit.setActionCommand("Exit");
+//        tutorial.setActionCommand("Tutorial");
+//        shop.setActionCommand("Shop");
+//        setting.setActionCommand("Setting");
+//        exit.setActionCommand("Exit");
 
 
         start_game.addActionListener(action_btn);
-        tutorial.addActionListener(action_btn);
-        shop.addActionListener(action_btn);
-        exit.addActionListener(action_btn);
-        setting.addActionListener(action_btn);
+//        tutorial.addActionListener(action_btn);
+//        shop.addActionListener(action_btn);
+//        exit.addActionListener(action_btn);
+//        setting.addActionListener(action_btn);
     }
 
     @Override

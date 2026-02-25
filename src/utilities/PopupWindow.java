@@ -14,7 +14,7 @@ public class PopupWindow {
     private final Border customBorder = BorderFactory.createLineBorder(Color.WHITE, 4);
 
     /* ===================== IMAGE BUTTONS ===================== */
-    ImageIcon normalBtn = IconImage.create("resources/images/mainMenu/btn-start-main.png", 200, 45);
+    ImageIcon normalBtn = IconImage.create("resources/images/mainMenu/BtnShort.png", 200, 45);
     ImageIcon hover = IconImage.create("resources/images/mainMenu/btn-start-hover.png", 200, 45);
     ImageIcon pressed = IconImage.create("resources/images/mainMenu/btn-start-press.png", 200, 45);
 
@@ -127,26 +127,26 @@ public class PopupWindow {
         btnPanel.setBorder(new EmptyBorder(40,0,20,0));
         btnPanel.setOpaque(false);
 
-        for (int i = 0; i < buttonTexts.length; i++) {
-
-            JButton btn = new IconBtn(normalBtn,hover,pressed);
-
-            // ถ้าเป็น No → ปิด dialog
-            if (buttonTexts[i].equalsIgnoreCase("No")) {
-                btn.addActionListener(e -> dialog.dispose());
-            }
-
-            // ถ้ามี action ส่งมา
-            if (actions != null && i < actions.length && actions[i] != null) {
-                int index = i;
-                btn.addActionListener( e -> {
-                    dialog.dispose();
-                    actions[index].actionPerformed(e);
-                });
-            }
-
-            btnPanel.add(btn);
-        }
+//        for (int i = 0; i < buttonTexts.length; i++) {
+//
+//            JButton btn = new IconBtn(normalBtn,hover,pressed);
+//
+//            // ถ้าเป็น No → ปิด dialog
+//            if (buttonTexts[i].equalsIgnoreCase("No")) {
+//                btn.addActionListener(e -> dialog.dispose());
+//            }
+//
+//            // ถ้ามี action ส่งมา
+//            if (actions != null && i < actions.length && actions[i] != null) {
+//                int index = i;
+//                btn.addActionListener( e -> {
+//                    dialog.dispose();
+//                    actions[index].actionPerformed(e);
+//                });
+//            }
+//
+//            btnPanel.add(btn);
+//        }
 
         /* ===== ADD TO BACKGROUND ===== */
         bgPanel.add(question, BorderLayout.CENTER);

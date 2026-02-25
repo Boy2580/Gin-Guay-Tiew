@@ -27,20 +27,20 @@ public class MainBtn implements ActionListener {
 
             System.out.println("Tutorial clicked");
 
-            dialog = pop.createPopup(
-                    frame,
-                    "tutorial",
-                    true,
-                    "Do you want to play Tutorial",
-                    "resources/images/mainMenu/8bit-pixel-graphic-blue-sky-background-with-clouds-vector.jpg",
-                    new String[]{"Yes", "No"},
-                    new ActionListener[]{
-                            ev -> {
-                                frame.getNavigator().toPage("levelSelect",true,250);
-                            },
-                            null
-                    }
-            );
+//            dialog = pop.createPopup(
+//                    frame,
+//                    "tutorial",
+//                    true,
+//                    "Do you want to play Tutorial",
+//                    "resources/images/mainMenu/8bit-pixel-graphic-blue-sky-background-with-clouds-vector.jpg",
+//                    new String[]{"Yes", "No"},
+//                    new ActionListener[]{
+//                            ev -> {
+//                                frame.getNavigator().toPage("levelSelect",true,250);
+//                            },
+//                            null
+//                    }
+//            );
         }
 
         if (e.getActionCommand().equals("Shop")) {
