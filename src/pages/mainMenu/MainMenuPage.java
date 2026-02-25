@@ -44,9 +44,8 @@ public class MainMenuPage extends JPanel {
         center_contain.add(logo);
 
         // ================= Button Images =================
-        ImageIcon btnImage = IconImage.create("resources/images/shared/shortBtn.png", 250, 50);
 
-        JButton start_game = new IconBtn("Start Game", btnImage, 30);
+        JButton start_game = new IconBtn("Start Game", "resources/images/mainMenu/BtnShort", ".png", 30);
 //        JButton tutorial = new IconBtn(normal, hover, pressed);
 //        JButton shop = new IconBtn(normal, hover, pressed);
 //        JButton setting = new IconBtn(normal, hover, pressed);

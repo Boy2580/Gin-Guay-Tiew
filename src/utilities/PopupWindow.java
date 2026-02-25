@@ -15,8 +15,8 @@ public class PopupWindow {
 
     /* ===================== IMAGE BUTTONS ===================== */
     ImageIcon normalBtn = IconImage.create("resources/images/mainMenu/BtnShort.png", 200, 45);
-    ImageIcon hover = IconImage.create("resources/images/mainMenu/btn-start-hover.png", 200, 45);
-    ImageIcon pressed = IconImage.create("resources/images/mainMenu/btn-start-press.png", 200, 45);
+    ImageIcon hover = IconImage.create("resources/images/mainMenu/BtnShort_Hover.png", 200, 45);
+    ImageIcon pressed = IconImage.create("resources/images/mainMenu/BtnShort_Clicked.png", 200, 45);
 
     /* ===================== BACKGROUND PANEL ===================== */
     class BackgroundPanel extends JPanel {
