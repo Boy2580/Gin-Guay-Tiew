@@ -1,8 +1,9 @@
 package pages;
 
+import pages.loadingScreen.LoadingPage;
 import pages.mainMenu.MainMenuPage;
 import pages.levelSelection.LevelSelectPage;
-import pages.tutorialMenu.MainTutorialPage;
+import pages.tutorialGame.MainTutorialPage;
 import utilities.IconImage;
 import utilities.PageNavigator;
 import utilities.PopupWindow;
@@ -17,13 +18,11 @@ public class MainFrame extends JFrame {
     public static final String MAIN_MENU = "mainMenu";
     public static final String LEVEL_SELECT = "levelSelect";
     public static final String TUTORIAL = "tutorial";
+    public static final String LOADING_SCREEN = "loadingScreen";
 
-    private CardLayout cardLayout = new CardLayout();
-    private JPanel mainPanel = new JPanel(cardLayout);
-    private Transition animator;
-    private PageNavigator navigator;
+    private final PageNavigator navigator;
     PopupWindow pop = new PopupWindow();
-    private boolean isWarningActive = false;
+    boolean isWarningActive = false;
 
     public void closeApp(){
         System.exit(0);
@@ -126,15 +125,18 @@ public class MainFrame extends JFrame {
         transFrame.setFocusPainted(false);
         transFrame.setBounds(400, 300, 0, 0);
 
-        animator = new Transition(transFrame, transIcon);
+        Transition animator = new Transition(transFrame, transIcon);
         glass.add(transFrame);
 
         // Initialize the navigator before adding pages
+        CardLayout cardLayout = new CardLayout();
+        JPanel mainPanel = new JPanel(cardLayout);
         navigator = new PageNavigator(mainPanel, cardLayout, animator);
 
         mainPanel.add(new MainMenuPage(this), MAIN_MENU); // + MainMenu
         mainPanel.add(new LevelSelectPage(this), LEVEL_SELECT); // + LevelSelection
         mainPanel.add(new MainTutorialPage(), TUTORIAL); // + Tutorial
+        mainPanel.add(new LoadingPage(), LOADING_SCREEN); // + LoadingScreen
 
         navigator.toPage(MAIN_MENU, false);
 

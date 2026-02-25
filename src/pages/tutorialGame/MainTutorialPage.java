@@ -1,4 +1,4 @@
-package pages.tutorialMenu;
+package pages.tutorialGame;
 
 import javax.swing.*;
 
