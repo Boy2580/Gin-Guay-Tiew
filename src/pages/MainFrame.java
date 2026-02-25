@@ -2,10 +2,7 @@ package pages;
 
 import pages.mainMenu.MainMenuPage;
 import pages.levelSelection.LevelSelectPage;
-<<<<<<< HEAD
-=======
 import pages.tutorialMenu.MainTutorialPage;
->>>>>>> MainMenu-ui
 import utilities.IconImage;
 import utilities.PageNavigator;
 import utilities.Transition;
