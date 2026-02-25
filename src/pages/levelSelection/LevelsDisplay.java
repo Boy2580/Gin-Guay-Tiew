@@ -88,8 +88,8 @@ public class LevelsDisplay extends JPanel {
                     @Override
                     public void mouseEntered(MouseEvent e) {
                         if (iconLevel.getIcon() == icon_Unselected) { iconLevel.setIcon(icon_Selected); }
-                        iconLevel.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
-                        lockIcon.setBorder(BorderFactory.createEmptyBorder(15, 0, 0, 0));
+                        iconLevel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
+                        lockIcon.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
                         iconShadow.setIcon(shadow_Selected);
                         textLabel.setTextColor(Color.CYAN);
                     }

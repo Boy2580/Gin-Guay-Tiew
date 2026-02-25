@@ -21,10 +21,13 @@ public class MainMenuPage extends JPanel {
         this.frame = frame;
         setLayout(new BorderLayout());
 
+//        ImageIcon original = new ImageIcon(
+//                "resources/images/mainMenu/image-from-rawpixel-id-14653376-jpeg.jpg"
+//        );
         ImageIcon original = new ImageIcon(
-                "resources/images/mainMenu/image-from-rawpixel-id-14653376-jpeg.jpg"
+                "resources/images/mainMenu/Background.png"
         );
-        ImageIcon newBackground = IconFilter.setOpacity(original, 0.35f);
+        ImageIcon newBackground = IconFilter.setOpacity(original, 0.5f);
         backgroundImage = newBackground.getImage();
 
         // ================= Center Container =================
