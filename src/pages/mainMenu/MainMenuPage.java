@@ -21,13 +21,10 @@ public class MainMenuPage extends JPanel {
         this.frame = frame;
         setLayout(new BorderLayout());
 
-//        ImageIcon original = new ImageIcon(
-//                "resources/images/mainMenu/image-from-rawpixel-id-14653376-jpeg.jpg"
-//        );
         ImageIcon original = new ImageIcon(
-                "resources/images/mainMenu/Background.png"
+                "resources/images/mainMenu/image-from-rawpixel-id-14653376-jpeg.jpg"
         );
-        ImageIcon newBackground = IconFilter.setOpacity(original, 0.5f);
+        ImageIcon newBackground = IconFilter.setOpacity(original, 0.35f);
         backgroundImage = newBackground.getImage();
 
         // ================= Center Container =================
@@ -47,31 +44,13 @@ public class MainMenuPage extends JPanel {
         center_contain.add(logo);
 
         // ================= Button Images =================
-        ImageIcon normal = IconImage.create(
-                "resources/images/mainMenu/btn-start-main.png",
-                250, 50
-        );
-        ImageIcon hover = IconImage.create(
-                "resources/images/mainMenu/btn-start-hover.png",
-                250, 50
-        );
-        ImageIcon pressed = IconImage.create(
-                "resources/images/mainMenu/btn-start-press.png",
-                250, 50
-        );
+        ImageIcon normal = IconImage.create("resources/images/mainMenu/btn-start-main.png", 250, 50);
+        ImageIcon hover = IconImage.create("resources/images/mainMenu/btn-start-hover.png", 250, 50);
+        ImageIcon pressed = IconImage.create("resources/images/mainMenu/btn-start-press.png", 250, 50);
 
-        ImageIcon enormal = IconImage.create(
-                "resources/images/mainMenu/btn-start-main.png",
-                510, 50
-        );
-        ImageIcon ehover = IconImage.create(
-                "resources/images/mainMenu/btn-start-hover.png",
-                510, 50
-        );
-        ImageIcon epressed = IconImage.create(
-                "resources/images/mainMenu/btn-start-press.png",
-                510, 50
-        );
+        ImageIcon enormal = IconImage.create("resources/images/mainMenu/btn-start-main.png", 510, 50);
+        ImageIcon ehover = IconImage.create("resources/images/mainMenu/btn-start-hover.png", 510, 50);
+        ImageIcon epressed = IconImage.create("resources/images/mainMenu/btn-start-press.png", 510, 50);
 
         JButton start_game = new IconBtn(normal, hover, pressed);
         JButton tutorial = new IconBtn(normal, hover, pressed);
