@@ -21,6 +21,12 @@ public class MainFrame extends JFrame {
     private Transition animator;
     private PageNavigator navigator;
 
+
+    // ปิดโปรดแกรม
+    public void getOut(){
+        System.exit(0);
+    }
+
     public MainFrame() {
         setTitle("Gin-Guay-Tiew");
         setSize(800, 600);
