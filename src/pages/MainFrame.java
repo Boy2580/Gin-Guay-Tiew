@@ -29,6 +29,12 @@ public class MainFrame extends JFrame {
         System.exit(0);
     }
 
+
+    // ปิดโปรดแกรม
+    public void getOut(){
+        System.exit(0);
+    }
+
     public MainFrame() {
         setTitle("Gin-Guay-Tiew");
         setSize(800, 600);
