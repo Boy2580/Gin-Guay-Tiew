@@ -65,7 +65,7 @@ public class MainBtn implements ActionListener {
             };
             dialog = pop.createPopup(
                     frame,
-                    "Do you want to close the game?", // Message
+                    "Are you sure you want to leave the kitchen?", // Message
                     "resources/images/shared/popups/Demo.png", // Background Path
                     btnPaths,
                     btnLabels,
