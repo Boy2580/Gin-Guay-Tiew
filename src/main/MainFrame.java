@@ -1,11 +1,15 @@
-package pages;
+package main;
 
+<<<<<<< Updated upstream:src/pages/MainFrame.java
 import pages.mainMenu.MainMenuPage;
 import pages.levelSelection.LevelSelectPage;
-import pages.tutorialMenu.MainTutorialPage;
+import ui.pages.tutorialMenu.MainTutorialPage;
+=======
+import ui.pages.tutorialGame.MainTutorialPage;
+>>>>>>> Stashed changes:src/main/MainFrame.java
 import utilities.IconImage;
 import utilities.PageNavigator;
-import utilities.PopupWindow;
+import ui.components.PopupWindow;
 import utilities.Transition;
 
 import javax.swing.*;
@@ -129,7 +133,13 @@ public class MainFrame extends JFrame {
         animator = new Transition(transFrame, transIcon);
         glass.add(transFrame);
 
+<<<<<<< Updated upstream:src/pages/MainFrame.java
         // Initialize the navigator before adding pages
+=======
+        // Initialize the navigator before adding ui.pages
+        CardLayout cardLayout = new CardLayout();
+        JPanel mainPanel = new JPanel(cardLayout);
+>>>>>>> Stashed changes:src/main/MainFrame.java
         navigator = new PageNavigator(mainPanel, cardLayout, animator);
 
         mainPanel.add(new MainMenuPage(this), MAIN_MENU); // + MainMenu

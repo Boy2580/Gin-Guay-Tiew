@@ -1,6 +1,7 @@
-package pages.levelSelection;
+package ui.pages.levelSelection;
 
-import pages.MainFrame;
+import main.MainFrame;
+import ui.components.CustomJLabel;
 import utilities.*;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LevelsDisplay extends JPanel {
-    private final Font jerseyFont = CustomFontLoader.loadCustomFont("resources/Jersey10.ttf");
+    private final Font jerseyFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
     private List<Level> levelsInfo;
 
     private void initLevels() {

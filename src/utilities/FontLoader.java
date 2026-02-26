@@ -7,7 +7,7 @@ import java.io.IOException;
 /**
  * Utility class for loading and registering external font files.
  */
-public class CustomFontLoader {
+public class FontLoader {
 
     /**
      * Loads a custom font from the specified file path

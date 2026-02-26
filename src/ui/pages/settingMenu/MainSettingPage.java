@@ -1,4 +1,4 @@
-package pages.settingMenu;
+package ui.pages.settingMenu;
 
 public class MainSettingPage {
 }

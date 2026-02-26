@@ -1,6 +1,6 @@
-package pages.levelSelection;
+package ui.pages.levelSelection;
 
-import pages.MainFrame;
+import main.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;

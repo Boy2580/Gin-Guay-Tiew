@@ -1,6 +1,6 @@
-package components;
+package ui.components;
 
-import utilities.CustomFontLoader;
+import utilities.FontLoader;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +15,7 @@ public class BackBtn extends JButton {
         setContentAreaFilled(false);
         setFocusPainted(false);
 
-        Font jerseyFont = CustomFontLoader.loadCustomFont("resources/Jersey10.ttf");
+        Font jerseyFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
         setFont(jerseyFont.deriveFont(32f));
     }
 

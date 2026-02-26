@@ -1,9 +1,8 @@
-package pages.mainMenu;
+package ui.pages.mainMenu;
 
-import pages.MainFrame;
-import utilities.IconFilter;
+import main.MainFrame;
 import utilities.IconImage;
-import utilities.ImageJButton;
+import ui.components.ImageJButton;
 
 import javax.swing.*;
 import java.awt.*;

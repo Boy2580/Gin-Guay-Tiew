@@ -1,4 +1,8 @@
+<<<<<<<< Updated upstream:src/pages/tutorialMenu/MainTutorialPage.java
 package pages.tutorialMenu;
+========
+package ui.pages.tutorialGame;
+>>>>>>>> Stashed changes:src/ui/pages/tutorialGame/MainTutorialPage.java
 
 import javax.swing.*;
 

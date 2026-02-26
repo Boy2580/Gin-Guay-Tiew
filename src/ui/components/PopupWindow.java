@@ -1,4 +1,7 @@
-package utilities;
+package ui.components;
+
+import utilities.FontLoader;
+import utilities.IconImage;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -10,7 +13,7 @@ import java.awt.*;
 public class PopupWindow {
 
     private JDialog dialog;
-    private final Font loadedFont = CustomFontLoader.loadCustomFont("resources/Jersey10.ttf");
+    private final Font loadedFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
 
     /* ===================== BACKGROUND PANEL ===================== */
     static class BackgroundPanel extends JPanel {

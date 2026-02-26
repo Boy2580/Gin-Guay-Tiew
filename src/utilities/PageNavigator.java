@@ -28,7 +28,7 @@ public class PageNavigator {
     /**
      * Instantly switches the view to the specified page.
      *
-     * @param pageName The string identifier of the page to show (e.g., MainFrame.MAIN_MENU).
+     * @param pageName The string identifier of the page to show (e.g., main.MainFrame.MAIN_MENU).
      */
     public void toPage(String pageName) {
         toPage(pageName, false, 0);

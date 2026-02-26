@@ -1,15 +1,13 @@
-package pages.levelSelection;
+package ui.pages.levelSelection;
 
-import components.BackBtn;
-import components.MoneyDisplay;
-import pages.MainFrame;
+import ui.components.BackBtn;
+import ui.components.MoneyDisplay;
+import main.MainFrame;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class TopBar extends JPanel {
 
