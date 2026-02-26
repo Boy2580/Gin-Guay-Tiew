@@ -1,13 +1,13 @@
-package components;
+package ui.components;
 
-import utilities.CustomFontLoader;
+import utilities.FontLoader;
 import utilities.IconImage;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MoneyDisplay extends JPanel {
-    private final Font jerseyFont = CustomFontLoader.loadCustomFont("resources/Jersey10.ttf");
+    private final Font jerseyFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
     ;
 
     public MoneyDisplay() {

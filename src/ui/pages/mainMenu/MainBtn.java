@@ -1,10 +1,10 @@
-package pages.mainMenu;
+package ui.pages.mainMenu;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import pages.MainFrame;
-import utilities.PopupWindow;
+import main.MainFrame;
+import ui.components.PopupWindow;
 
 public class MainBtn implements ActionListener {
     private JDialog dialog;

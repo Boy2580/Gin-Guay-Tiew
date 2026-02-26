@@ -1,12 +1,11 @@
-package pages;
+package main;
 
-import pages.loadingScreen.LoadingPage;
-import pages.mainMenu.MainMenuPage;
-import pages.levelSelection.LevelSelectPage;
-import pages.tutorialGame.MainTutorialPage;
+import ui.pages.levelSelection.LevelSelectPage;
+import ui.pages.mainMenu.MainMenuPage;
+import ui.pages.tutorialGame.GameTutorialPage;
 import utilities.IconImage;
 import utilities.PageNavigator;
-import utilities.PopupWindow;
+import ui.components.PopupWindow;
 import utilities.Transition;
 
 import javax.swing.*;
@@ -18,19 +17,15 @@ public class MainFrame extends JFrame {
     public static final String MAIN_MENU = "mainMenu";
     public static final String LEVEL_SELECT = "levelSelect";
     public static final String TUTORIAL = "tutorial";
-    public static final String LOADING_SCREEN = "loadingScreen";
 
-    private final PageNavigator navigator;
+    private CardLayout cardLayout = new CardLayout();
+    private JPanel mainPanel = new JPanel(cardLayout);
+    private Transition animator;
+    private PageNavigator navigator;
     PopupWindow pop = new PopupWindow();
-    boolean isWarningActive = false;
+    private boolean isWarningActive = false;
 
-    public void closeApp(){
-        System.exit(0);
-    }
-
-
-    // ปิดโปรดแกรม
-    public void getOut(){
+    public void closeApp() {
         System.exit(0);
     }
 
@@ -77,9 +72,9 @@ public class MainFrame extends JFrame {
                 // Create warning popUp
                 Timer popupDelayTimer = new Timer(25, delayEvent -> {
 
-                    String[] btnPaths = { "resources/images/shared/buttons/Ok" };
-                    String[] btnLabels = { "No" }; // "No" triggers dialog.dispose() will close popup naja!
-                    ActionListener[] btnActions = { null };
+                    String[] btnPaths = {"resources/images/shared/buttons/Ok"};
+                    String[] btnLabels = {"No"}; // "No" triggers dialog.dispose() will close popup naja!
+                    ActionListener[] btnActions = {null};
 
                     JDialog dialog = pop.createPopup(
                             this,
@@ -117,7 +112,7 @@ public class MainFrame extends JFrame {
         glass.setLayout(null);
         glass.setVisible(true);
 
-        ImageIcon transIcon = IconImage.create("resources/images/shared/TransitionIcon.png", 50, 50);
+        ImageIcon transIcon = IconImage.create("resources/images/shared/Transition.png", 50, 50);
         JButton transFrame = new JButton();
         transFrame.setIcon(transIcon);
         transFrame.setBorderPainted(false);
@@ -125,18 +120,17 @@ public class MainFrame extends JFrame {
         transFrame.setFocusPainted(false);
         transFrame.setBounds(400, 300, 0, 0);
 
-        Transition animator = new Transition(transFrame, transIcon);
+        animator = new Transition(transFrame, transIcon);
         glass.add(transFrame);
 
-        // Initialize the navigator before adding pages
+        // Initialize the navigator before adding ui.pages
         CardLayout cardLayout = new CardLayout();
         JPanel mainPanel = new JPanel(cardLayout);
         navigator = new PageNavigator(mainPanel, cardLayout, animator);
 
         mainPanel.add(new MainMenuPage(this), MAIN_MENU); // + MainMenu
         mainPanel.add(new LevelSelectPage(this), LEVEL_SELECT); // + LevelSelection
-        mainPanel.add(new MainTutorialPage(), TUTORIAL); // + Tutorial
-        mainPanel.add(new LoadingPage(), LOADING_SCREEN); // + LoadingScreen
+        mainPanel.add(new GameTutorialPage(), TUTORIAL); // + Tutorial
 
         navigator.toPage(MAIN_MENU, false);
 

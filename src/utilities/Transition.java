@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
- * Manages visual transitions for UI components, specifically handling expansion and fade effects.
+ * Manages visual transitions for UI ui.components, specifically handling expansion and fade effects.
  * <p>
  * This class uses a {@link Timer} to animate a transition.
  */
