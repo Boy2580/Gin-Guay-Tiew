@@ -1,8 +1,23 @@
 package main;
 
+<<<<<<< Updated upstream:src/main/MainFrame.java
 import ui.pages.levelSelection.LevelSelectPage;
 import ui.pages.mainMenu.MainMenuPage;
 import ui.pages.tutorialGame.GameTutorialPage;
+=======
+import pages.mainMenu.MainMenuPage;
+
+
+//============= Step 1 import หน้าหลักที่ต้องการให้โชว์ =============
+
+import pages.levelSelection.LevelSelectPage;
+import pages.tutorialMenu.MainTutorialPage;
+import pages.settingGame.MainSettingPage;
+
+//======================== END ==============================
+
+
+>>>>>>> Stashed changes:src/pages/MainFrame.java
 import utilities.IconImage;
 import utilities.PageNavigator;
 import ui.components.PopupWindow;
@@ -14,9 +29,14 @@ import java.awt.event.*;
 
 public class MainFrame extends JFrame {
 
+    //============= Step 2 สร้างตัวแปลและกำหนดชื่อ ที่จะใช้ในการเชื่อมไปหน้านั้น =============
+
     public static final String MAIN_MENU = "mainMenu";
     public static final String LEVEL_SELECT = "levelSelect";
     public static final String TUTORIAL = "tutorial";
+    public static final String SETTING = "setting";
+
+    //================================ END ===================================
 
     private CardLayout cardLayout = new CardLayout();
     private JPanel mainPanel = new JPanel(cardLayout);
@@ -37,6 +57,18 @@ public class MainFrame extends JFrame {
         setResizable(false);
         ImageIcon img = new ImageIcon("resources/images/shared/AppIcon.png");
         setIconImage(img.getImage());
+
+        //============= Step 3 นำหน้าPage ที่ importเข้ามาและให้นำที่ใช้ในการเชื่อมไปหน้า มาใส่ใน =============
+        // mainPanel.add(new XXXXXXXX(this), XXXXXX);
+
+        mainPanel.add(new MainMenuPage(this), MAIN_MENU); // + MainMenu
+        mainPanel.add(new LevelSelectPage(this), LEVEL_SELECT); // + LevelSelection
+        mainPanel.add(new MainTutorialPage(), TUTORIAL); // + Tutorial
+        mainPanel.add(new MainSettingPage(), SETTING); // + Setting
+
+        //========================== END ==========================
+
+
         // Keep window on screen
         Timer snapTimer = new Timer(100, e -> {
             if (isWarningActive) return;
@@ -128,11 +160,15 @@ public class MainFrame extends JFrame {
         JPanel mainPanel = new JPanel(cardLayout);
         navigator = new PageNavigator(mainPanel, cardLayout, animator);
 
+<<<<<<< Updated upstream:src/main/MainFrame.java
         mainPanel.add(new MainMenuPage(this), MAIN_MENU); // + MainMenu
         mainPanel.add(new LevelSelectPage(this), LEVEL_SELECT); // + LevelSelection
         mainPanel.add(new GameTutorialPage(), TUTORIAL); // + Tutorial
 
         navigator.toPage(MAIN_MENU, false);
+=======
+        navigator.toPage(SETTING, false);
+>>>>>>> Stashed changes:src/pages/MainFrame.java
 
         add(mainPanel);
         setVisible(true);

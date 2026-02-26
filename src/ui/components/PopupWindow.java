@@ -4,7 +4,6 @@ import utilities.FontLoader;
 import utilities.IconImage;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.event.ActionListener;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
