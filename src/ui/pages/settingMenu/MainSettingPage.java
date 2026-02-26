@@ -10,7 +10,7 @@ import java.awt.*;
 public class MainSettingPage extends JPanel{
 
     MainFrame frame;
-    private final Font loadedFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
+    private final Font loadedFont = FontLoader.loadCustomFont("resources/font/Jersey10.ttf");
 
     public MainSettingPage(){
         setLayout(new BorderLayout());
