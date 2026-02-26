@@ -13,7 +13,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements WindowListener {
 
     public static final String MAIN_MENU = "mainMenu";
     public static final String LEVEL_SELECT = "levelSelect";
@@ -31,14 +31,20 @@ public class MainFrame extends JFrame {
         System.exit(0);
     }
 
+    public PageNavigator getNavigator() {
+        return navigator;
+    }
+
     public MainFrame() {
         setTitle("Gin-Guay-Tiew");
         setSize(800, 600);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        addWindowListener(this);
         setLocationRelativeTo(null);
         setResizable(false);
         ImageIcon img = new ImageIcon("resources/images/shared/AppIcon.png");
         setIconImage(img.getImage());
+
         // Keep window on screen
         Timer snapTimer = new Timer(100, e -> {
             if (isWarningActive) return;
@@ -141,7 +147,34 @@ public class MainFrame extends JFrame {
         setVisible(true);
     }
 
-    public PageNavigator getNavigator() {
-        return navigator;
+    @Override
+    public void windowClosing(WindowEvent e) {
+        String[] btnPaths = {
+                "resources/images/shared/buttons/Yes",
+                "resources/images/shared/buttons/No"
+        };
+        String[] btnLabels = {"Yes", "No"};
+
+        // Actions for the buttons
+        ActionListener[] btnActions = {
+                ae -> closeApp(),
+                null
+        };
+
+        pop.createPopup(
+                this,
+                "Are you sure you want to leave the kitchen?",
+                "resources/images/shared/popups/Demo.png",
+                btnPaths,
+                btnLabels,
+                btnActions
+        );
     }
+
+    @Override public void windowOpened(WindowEvent e) {}
+    @Override public void windowClosed(WindowEvent e) {}
+    @Override public void windowIconified(WindowEvent e) {}
+    @Override public void windowDeiconified(WindowEvent e) {}
+    @Override public void windowActivated(WindowEvent e) {}
+    @Override public void windowDeactivated(WindowEvent e) {}
 }
