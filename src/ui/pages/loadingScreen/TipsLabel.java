@@ -29,7 +29,7 @@ public class TipsLabel extends JPanel {
         tipsPane.setEditable(false);
         tipsPane.setOpaque(false);
         tipsPane.setFocusable(false);
-        Font loadedFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
+        Font loadedFont = FontLoader.loadCustomFont("resources/font/Jersey10.ttf");
         tipsPane.setFont(loadedFont.deriveFont(24f));
 
         // Initial tip

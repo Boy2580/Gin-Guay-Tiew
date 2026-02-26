@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LevelsDisplay extends JPanel {
-    private final Font jerseyFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
+    private final Font jerseyFont = FontLoader.loadCustomFont("resources/font/Jersey10.ttf");
     private List<Level> levelsInfo;
 
     private void initLevels() {

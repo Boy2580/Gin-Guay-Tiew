@@ -12,7 +12,7 @@ import java.awt.*;
 public class PopupWindow {
 
     private JDialog dialog;
-    private final Font loadedFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
+    private final Font loadedFont = FontLoader.loadCustomFont("resources/font/Jersey10.ttf");
 
     /* ===================== BACKGROUND PANEL ===================== */
     static class BackgroundPanel extends JPanel {
