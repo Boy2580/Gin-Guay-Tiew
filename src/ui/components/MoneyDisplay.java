@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MoneyDisplay extends JPanel {
-    private final Font jerseyFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
+    private final Font jerseyFont = FontLoader.loadCustomFont("resources/font/Jersey10.ttf");
     ;
 
     public MoneyDisplay() {

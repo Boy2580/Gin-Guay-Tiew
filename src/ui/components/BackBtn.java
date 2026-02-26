@@ -15,7 +15,7 @@ public class BackBtn extends JButton {
         setContentAreaFilled(false);
         setFocusPainted(false);
 
-        Font jerseyFont = FontLoader.loadCustomFont("resources/Jersey10.ttf");
+        Font jerseyFont = FontLoader.loadCustomFont("resources/font/Jersey10.ttf");
         setFont(jerseyFont.deriveFont(32f));
     }
 
