@@ -1,12 +1,8 @@
 package main;
 
-<<<<<<< Updated upstream:src/pages/MainFrame.java
-import pages.mainMenu.MainMenuPage;
-import pages.levelSelection.LevelSelectPage;
-import ui.pages.tutorialMenu.MainTutorialPage;
-=======
-import ui.pages.tutorialGame.MainTutorialPage;
->>>>>>> Stashed changes:src/main/MainFrame.java
+import ui.pages.levelSelection.LevelSelectPage;
+import ui.pages.mainMenu.MainMenuPage;
+import ui.pages.tutorialGame.GameTutorialPage;
 import utilities.IconImage;
 import utilities.PageNavigator;
 import ui.components.PopupWindow;
@@ -29,13 +25,7 @@ public class MainFrame extends JFrame {
     PopupWindow pop = new PopupWindow();
     private boolean isWarningActive = false;
 
-    public void closeApp(){
-        System.exit(0);
-    }
-
-
-    // ปิดโปรดแกรม
-    public void getOut(){
+    public void closeApp() {
         System.exit(0);
     }
 
@@ -82,9 +72,9 @@ public class MainFrame extends JFrame {
                 // Create warning popUp
                 Timer popupDelayTimer = new Timer(25, delayEvent -> {
 
-                    String[] btnPaths = { "resources/images/shared/buttons/Ok" };
-                    String[] btnLabels = { "No" }; // "No" triggers dialog.dispose() will close popup naja!
-                    ActionListener[] btnActions = { null };
+                    String[] btnPaths = {"resources/images/shared/buttons/Ok"};
+                    String[] btnLabels = {"No"}; // "No" triggers dialog.dispose() will close popup naja!
+                    ActionListener[] btnActions = {null};
 
                     JDialog dialog = pop.createPopup(
                             this,
@@ -122,7 +112,7 @@ public class MainFrame extends JFrame {
         glass.setLayout(null);
         glass.setVisible(true);
 
-        ImageIcon transIcon = IconImage.create("resources/images/shared/TransitionIcon.png", 50, 50);
+        ImageIcon transIcon = IconImage.create("resources/images/shared/Transition.png", 50, 50);
         JButton transFrame = new JButton();
         transFrame.setIcon(transIcon);
         transFrame.setBorderPainted(false);
@@ -133,18 +123,14 @@ public class MainFrame extends JFrame {
         animator = new Transition(transFrame, transIcon);
         glass.add(transFrame);
 
-<<<<<<< Updated upstream:src/pages/MainFrame.java
-        // Initialize the navigator before adding pages
-=======
         // Initialize the navigator before adding ui.pages
         CardLayout cardLayout = new CardLayout();
         JPanel mainPanel = new JPanel(cardLayout);
->>>>>>> Stashed changes:src/main/MainFrame.java
         navigator = new PageNavigator(mainPanel, cardLayout, animator);
 
         mainPanel.add(new MainMenuPage(this), MAIN_MENU); // + MainMenu
         mainPanel.add(new LevelSelectPage(this), LEVEL_SELECT); // + LevelSelection
-        mainPanel.add(new MainTutorialPage(), TUTORIAL); // + Tutorial
+        mainPanel.add(new GameTutorialPage(), TUTORIAL); // + Tutorial
 
         navigator.toPage(MAIN_MENU, false);
 
