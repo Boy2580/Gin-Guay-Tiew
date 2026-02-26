@@ -25,7 +25,7 @@ public class ManageBtn extends JPanel implements ActionListener {
 
         backBtn = new ImageJButton("resources/images/mainMenu/buttons/Shop", ".png", 30, 250, 40);
         playAgainBtn = new ImageJButton("resources/images/mainMenu/buttons/StartGame", ".png", 30, 250, 40);
-        shopBtn = new ImageJButton("resources/images/mainMenu/buttons/StartGame", ".png", 30, 250, 40);
+        shopBtn = new ImageJButton("resources/images/mainMenu/buttons/Shop", ".png", 30, 250, 40);
 
         add(backBtn);
         add(playAgainBtn);
