@@ -9,7 +9,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 public class TipsLabel extends JPanel {
-    private final JTextPane tipsPane;
+    private final JTextPane tipsPanel;
     private final String[] tips = {
             "Did you know? You can adjust you volume in the settings.",
             "Use your inner noodle spirit to serve customer faster!",
@@ -20,23 +20,24 @@ public class TipsLabel extends JPanel {
     };
     private final Timer tipTimer;
     private final Random random = new Random();
+    Font jersyFont = FontLoader.loadCustomFont("resources/font/Jersey10.ttf");
 
     public TipsLabel() {
         setLayout(new BorderLayout());
         setBorder(BorderFactory.createEmptyBorder(5, 50, 100, 35));
-        setOpaque(false);
+        setOpaque(true);
+        setBackground(Color.cyan);
 
-        tipsPane = new JTextPane();
-        tipsPane.setEditable(false);
-        tipsPane.setOpaque(false);
-        tipsPane.setFocusable(false);
-        Font loadedFont = FontLoader.loadCustomFont("resources/font/Jersey10.ttf");
-        tipsPane.setFont(loadedFont.deriveFont(24f));
+        tipsPanel = new JTextPane();
+        tipsPanel.setEditable(false);
+        tipsPanel.setOpaque(false);
+        tipsPanel.setFocusable(false);
+        tipsPanel.setFont(jersyFont.deriveFont(24f));
 
         // Initial tip
         setTipText(tips[random.nextInt(tips.length)]);
 
-        add(tipsPane, BorderLayout.CENTER);
+        add(tipsPanel, BorderLayout.CENTER);
 
         tipTimer = new Timer(5000, e -> showNextTip());
         tipTimer.start();
@@ -48,14 +49,14 @@ public class TipsLabel extends JPanel {
     }
 
     private void centerText() {
-        StyledDocument doc = tipsPane.getStyledDocument();
+        StyledDocument doc = tipsPanel.getStyledDocument();
         SimpleAttributeSet center = new SimpleAttributeSet();
         StyleConstants.setAlignment(center, StyleConstants.ALIGN_LEFT);
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
     }
 
     public void setTipText(String text) {
-        tipsPane.setText("TIP: "+text);
+        tipsPanel.setText("TIP: "+text);
         centerText();
     }
 
