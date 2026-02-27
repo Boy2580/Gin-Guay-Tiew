@@ -135,7 +135,7 @@ public class MainFrame extends JFrame implements WindowListener {
         transFrame.setFocusPainted(false);
         transFrame.setBounds(400, 300, 0, 0);
 
-        GameController gameController = new GameController();
+        GameController gameController = new GameController(this);
 
         animator = new Transition(transFrame, transIcon);
         glass.add(transFrame);

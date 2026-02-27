@@ -1,20 +1,27 @@
 package logic;
 
+import main.MainFrame; // import เพิ่ม
 import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
-
-    // จำลองเงินเริ่มต้น
+    private MainFrame mainFrame; // เก็บอ้างอิงของหน้าต่างหลักไว้
     private int totalMoney = 1000;
 
-    public int getTotalMoney() {
-        return totalMoney;
+    // Constructor รับค่า MainFrame มาเก็บไว้
+    public GameController(MainFrame frame) {
+        this.mainFrame = frame;
     }
+
+    // สร้าง Method นี้เพื่อให้หน้า Shop ดึง MainFrame ไปใช้กับปุ่ม Back และ Popup
+    public MainFrame getMainFrame() {
+        return mainFrame;
+    }
+
+    public int getTotalMoney() { return totalMoney; }
 
     public List<UpgradeItem> getAvailableItems() {
         List<UpgradeItem> items = new ArrayList<>();
-        // ลองเพิ่มของเล่นๆ 1 ชิ้นดูว่าขึ้นไหม
         items.add(new UpgradeItem("เส้นเล็ก", 50, "resources/images/shared/items/noodle.png"));
         return items;
     }
