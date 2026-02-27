@@ -82,7 +82,6 @@ public class MainSettingPage extends JPanel{
         btn2.setActionCommand("fx");
 
         slider.addChangeListener(new ButtonSetting(slider,images01));
-        btn2.addActionListener(new ButtonSetting(btn2));
 
 
         // ====================== CONTAINER =================

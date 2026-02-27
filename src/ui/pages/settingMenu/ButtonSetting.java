@@ -1,7 +1,7 @@
 package ui.pages.settingMenu;
 
 import utilities.IconImage;
-
+import main.MainFrame;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -24,6 +24,7 @@ public class ButtonSetting implements ChangeListener, ActionListener {
     private JLabel label;
     private JButton btn;
     private boolean state =  true;
+    private MainFrame frame;
 
     public ButtonSetting(JButton btn){
         this.btn = btn;
